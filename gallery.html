@@ -1,0 +1,369 @@
+<!-- Include Swiper's CSS and JS -->
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/css/swiper.min.css"
+/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.0.7/js/swiper.min.js"></script>
+
+<!-- Main Slider -->
+<div class="swiper-container main-slider loading">
+  <div class="swiper-wrapper" id="main-slider-wrapper">
+    <!-- Slides will be inserted dynamically -->
+  </div>
+  <!-- Navigation -->
+  <div class="swiper-button-prev swiper-button-white"></div>
+  <div class="swiper-button-next swiper-button-white"></div>
+</div>
+
+<!-- Thumbnail Slider -->
+<div class="swiper-container nav-slider loading">
+  <div class="swiper-wrapper" role="navigation" id="nav-slider-wrapper">
+    <!-- Thumbnails will be inserted dynamically -->
+  </div>
+</div>
+
+<!-- JavaScript to dynamically generate slides -->
+<script>
+  // Slide data (image URL, title, and caption for main slider)
+  const slideData = [
+    {
+      imgUrl: "https://i.postimg.cc/zX1fHgdt/156A9285.jpg",
+      title: "Wedding Celebration Highlights",
+      caption: "",
+    },
+    {
+      imgUrl: "https://i.postimg.cc/VNH6JZTn/156A7140-Edit-2.jpg",
+      title: "Stunning Portraits",
+      caption: "",
+    },
+    {
+      imgUrl: "https://i.postimg.cc/QtCNZPbg/0T7A0873-Edit-3.jpg",
+      title: "",
+      caption:
+        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    },
+    {
+      imgUrl: "https://i.postimg.cc/wvCjVy9B/1509.jpg",
+      title: "Shaun Matthews",
+      caption:
+        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    },
+    {
+      imgUrl: "https://i.postimg.cc/sx844tnT/0-T7-A9298-Edit.jpg",
+      title: "Shaun Matthews",
+      caption:
+        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    },
+    {
+      imgUrl: "https://i.postimg.cc/P5Qv54TQ/0T7A8108.jpg",
+      title: "Thai-Inspired Prenup",
+      caption:
+        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    },
+    {
+      imgUrl: "https://i.postimg.cc/RhPD5sgt/0-T7-A8131-Edit.jpg",
+      title: "Shaun Matthews",
+      caption:
+        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    },
+    {
+      imgUrl: "https://i.postimg.cc/XN1ZZJRt/0T7A4923.jpg",
+      title: "Shaun Matthews",
+      caption:
+        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    },
+    {
+      imgUrl: "https://i.postimg.cc/V5ymj3B0/0T7A7888.jpg",
+      title: "Wedding Celebration",
+      caption:
+        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    },
+    {
+      imgUrl: "https://i.postimg.cc/BbPJPqDG/0T7A7395.jpg",
+      title: "Shaun Matthews",
+      caption:
+        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    },
+    {
+      imgUrl: "https://i.postimg.cc/7Lz197kC/0T7A4838.jpg",
+      title: "Romantic Wedding Memories",
+      caption:
+        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    },
+    {
+      imgUrl: "https://i.postimg.cc/sXZLp1nK/0T7A3598.jpg",
+      title: "Pre-Wedding Preparations",
+      caption:
+        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    },
+    {
+      imgUrl: "https://i.postimg.cc/KjTyv0SG/0T7A3981.jpg",
+      title: "Candid Wedding Shots",
+      caption:
+        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    },
+    {
+      imgUrl: "https://i.postimg.cc/5trGY8m6/0-T7-A4340-2.jpg",
+      title: "Scenic Wedding Bliss",
+      caption:
+        "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    },
+  ];
+
+  // Function to generate slide HTML for main slider
+  function generateMainSliderSlides(data) {
+    return data
+      .map((item) => {
+        return `
+        <div class="swiper-slide">
+          <figure class="slide-bgimg" style="background-image: url(${item.imgUrl});">
+            <img src="${item.imgUrl}" class="entity-img" />
+          </figure>
+          <div class="content">
+            <p class="title">${item.title}</p>
+            <span class="caption">${item.caption}</span>
+          </div>
+        </div>
+      `;
+      })
+      .join("");
+  }
+
+  // Function to generate slide HTML for nav slider
+  function generateNavSliderSlides(data) {
+    return data
+      .map((item) => {
+        return `
+        <div class="swiper-slide">
+          <figure class="slide-bgimg" style="background-image: url(${item.imgUrl});">
+            <img src="${item.imgUrl}" class="entity-img" />
+          </figure>
+          <div class="content">
+            <p class="title">${item.title}</p>
+          </div>
+        </div>
+      `;
+      })
+      .join("");
+  }
+
+  // Insert generated slides into the corresponding wrappers
+  document.getElementById("main-slider-wrapper").innerHTML =
+    generateMainSliderSlides(slideData);
+  document.getElementById("nav-slider-wrapper").innerHTML =
+    generateNavSliderSlides(slideData);
+
+  // Initialize Swipers
+  let mainSliderSelector = ".main-slider",
+    navSliderSelector = ".nav-slider",
+    interleaveOffset = 0.5;
+
+  let mainSliderOptions = {
+    loop: true,
+    speed: 1000,
+    autoplay: {
+      delay: 3000,
+    },
+    loopAdditionalSlides: 14,
+    grabCursor: true,
+    watchSlidesProgress: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    on: {
+      init: function () {
+        this.autoplay.stop();
+      },
+      imagesReady: function () {
+        this.el.classList.remove("loading");
+        this.autoplay.start();
+      },
+      slideChangeTransitionEnd: function () {
+        let swiper = this,
+          captions = swiper.el.querySelectorAll(".caption");
+        for (let i = 0; i < captions.length; ++i) {
+          captions[i].classList.remove("show");
+        }
+        swiper.slides[swiper.activeIndex]
+          .querySelector(".caption")
+          .classList.add("show");
+      },
+      progress: function () {
+        let swiper = this;
+        for (let i = 0; i < swiper.slides.length; i++) {
+          let slideProgress = swiper.slides[i].progress,
+            innerOffset = swiper.width * interleaveOffset,
+            innerTranslate = slideProgress * innerOffset;
+          swiper.slides[i].querySelector(".slide-bgimg").style.transform =
+            "translateX(" + innerTranslate + "px)";
+        }
+      },
+      touchStart: function () {
+        let swiper = this;
+        for (let i = 0; i < swiper.slides.length; i++) {
+          swiper.slides[i].style.transition = "";
+        }
+      },
+      setTransition: function (speed) {
+        let swiper = this;
+        for (let i = 0; i < swiper.slides.length; i++) {
+          swiper.slides[i].style.transition = speed + "ms";
+          swiper.slides[i].querySelector(".slide-bgimg").style.transition =
+            speed + "ms";
+        }
+      },
+    },
+  };
+  let mainSlider = new Swiper(mainSliderSelector, mainSliderOptions);
+
+  let navSliderOptions = {
+    loop: true,
+    loopAdditionalSlides: 14,
+    speed: 1000,
+    spaceBetween: 5,
+    slidesPerView: 5,
+    centeredSlides: true,
+    touchRatio: 0.2,
+    slideToClickedSlide: true,
+    direction: "vertical",
+    on: {
+      imagesReady: function () {
+        this.el.classList.remove("loading");
+      },
+      click: function () {
+        mainSlider.autoplay.stop();
+      },
+    },
+  };
+  let navSlider = new Swiper(navSliderSelector, navSliderOptions);
+
+  mainSlider.controller.control = navSlider;
+  navSlider.controller.control = mainSlider;
+</script>
+
+<!-- CSS for Styling -->
+<style>
+  %transition_all_03s {
+    transition: all 0.3s ease;
+  }
+  %backface_visibility_hidden {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  .swiper-container {
+    width: 80%;
+    height: 100vh;
+    display: inline-block;
+    vertical-align: top;
+    float: left;
+    transition: opacity 0.6s ease, transform 0.3s ease;
+    &.nav-slider {
+      width: 20%;
+      padding-left: 5px;
+      padding-right: 5px;
+      .swiper-slide {
+        cursor: pointer;
+        opacity: 0.4;
+        transition: opacity 0.3s ease;
+        &.swiper-slide-active {
+          opacity: 1;
+        }
+        .content {
+          width: 100%;
+          height: 60%;
+          .title {
+            font-size: 20px;
+          }
+        }
+      }
+    }
+    &:hover {
+      .swiper-button-prev,
+      .swiper-button-next {
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+    &.loading {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  .slide-bgim,
+  .entity-img {
+    aspect-ratio: 10 / 7;
+    width: 90%;
+  }
+
+  .swiper-container {
+    &.main-slider {
+    }
+  }
+
+  .swiper-slide {
+    overflow: hidden;
+    @extend %backface_visibility_hidden;
+    .slide-bgimg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-position: center;
+      background-size: cover;
+    }
+    .entity-img {
+      display: none;
+    }
+    .content {
+      position: absolute;
+      top: 40%;
+      left: 0;
+      width: 50%;
+      padding-left: 5%;
+      color: #fff;
+      .title {
+        font-size: 2.6em;
+        font-weight: bold;
+        margin-bottom: 30px;
+      }
+      .caption {
+        display: block;
+        font-size: 13px;
+        line-height: 1.4;
+        transform: translateX(50px);
+        opacity: 0;
+        transition: opacity 0.3s ease, transform 0.7s ease;
+        &.show {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  [class^="swiper-button-"] {
+    width: 44px;
+    opacity: 0;
+    visibility: hidden;
+    @extend %transition_all_03s;
+  }
+  .swiper-button-prev {
+    transform: translateX(50px);
+  }
+  .swiper-button-next {
+    transform: translateX(-50px);
+  }
+</style>
