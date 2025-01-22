@@ -223,21 +223,51 @@
     <!-- Footer Section -->
     <footer>
       <div class="social-media">
-        <img
-          .src="http://drive.google.com/uc?export=view&id=18hyHiayWMQq-be0ROqd7D3zlTF08azMF"
-        />
-        <a class="glassIco" href="pearlygolezcreatives"
+        <a class="glassIco email" href="" onclick="copyEmail(); return false;"
           ><i class="fa fa-envelope"></i
         ></a>
-        <a class="glassIco" href="#"><i class="fab fa-line"></i></a>
-        <a class="glassIco" href="https://www.facebook.com/PGCreativesThailand"
+        <a class="glassIco line" href="#" onclick="copyLine(); return false;"
+          ><i class="fab fa-line"></i
+        ></a>
+        <a
+          class="glassIco facebook"
+          href="https://www.facebook.com/PGCreativesThailand"
           ><i class="fab fa-facebook"></i
         ></a>
-        <a class="glassIco" href="#"><i class="fab fa-instagram"></i></a>
-        <a class="glassIco" href="#"><i class="fab fa-tiktok"></i></a>
+        <a class="glassIco instagram" href="#"
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a class="glassIco tiktok" href="#"><i class="fab fa-tiktok"></i></a>
+      </div>
+      <div class="copyrights">
         <p>&copy; 2025 PG Creatives. All rights reserved.</p>
       </div>
     </footer>
+    <script>
+      function copyEmail() {
+        var email = "pearlygolezcreatives@gmail.com";
+        var tempInput = document.createElement("input");
+        document.body.appendChild(tempInput);
+        tempInput.value = email;
+        tempInput.select();
+        tempInput.setSelectionRange(0, 99999); // Mobile devices
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+        alert("Email copied to clipboard: " + email);
+      }
+      function copyLine() {
+        var email = "pgcreatives";
+        var tempInput = document.createElement("input");
+        document.body.appendChild(tempInput);
+        tempInput.value = email;
+        tempInput.select();
+        tempInput.setSelectionRange(0, 99999); // Mobile devices
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+        alert("Email copied to clipboard: " + email);
+      }
+    </script>
+
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;700&display=swap");
 
@@ -452,10 +482,8 @@
       }
 
       .footer {
+        max-height: 400px;
         display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        align-items: center;
         flex-direction: column;
       }
 
@@ -468,6 +496,9 @@
           width: 350px;
           height: auto;
         }
+        .glassIco {
+          width: 60px;
+          height: 40px;
       }
 
       /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
@@ -479,6 +510,10 @@
           width: 160px;
           height: auto;
         }
+        .glassIco {
+          width: 60px;
+          height: 40px;
+      }
       }
     </style>
 
@@ -572,23 +607,36 @@
     <!----- Social Media Styles ----- -->
     <style>
       .social-media {
+        width: 100%;
+
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+
         padding: auto;
         margin: 0;
-        height: 100%;
-        position: relative;
-        width: 100vw;
+        height: 200px;
         /*background-image: linear-gradient(135deg, #f97794 10%, #623aa2 100%);*/
         display: flex;
         justify-content: center;
         align-items: center;
       }
 
-      .social-media p {
+      .copyrights {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        align-items: center;
+      }
+      .copyrights p {
         color: var(--color2);
+        margin-bottom: 2rem;
+
+        /* padding-bottom: 3rem; */
       }
 
       .glassIco {
-        --width: 120px;
+        --width: 80px;
         box-sizing: border-box;
         transition: 200ms;
         max-width: var(--width);
@@ -622,8 +670,38 @@
         transform: skewX(45deg) translateX(calc(var(--width) + 50%));
       }
 
-      .glassIco:hover {
-        transform: translateY(-20px);
+      .email:hover {
+        background: linear-gradient(
+          -120deg,
+          #4285f4,
+          #34a853,
+          #fbbc05,
+          #ea4335
+        );
+      }
+
+      .line:hover {
+        background: #00c300;
+      }
+
+      .facebook:hover {
+        background: #1877f2;
+      }
+
+      .instagram:hover {
+        background: linear-gradient(
+          45deg,
+          #405de6,
+          #5851db,
+          #833ab4,
+          #c13584,
+          #e1306c,
+          #fd1d1d
+        );
+      }
+
+      .tiktok:hover {
+        background: black;
       }
 
       .glassIco:hover:before {
