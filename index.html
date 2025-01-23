@@ -219,10 +219,16 @@
         <a class="glassIco email" href="" onclick="copyEmail(); return false;"
           ><i class="fa fa-envelope"></i
         ></a>
-        <a class="glassIco line" href="#" onclick="copyLine(); return false;"
+        <a
+          class="glassIco line"
+          href="https://line.me/R/ti/p/mark.g0lez"
+          target="_blank"
           ><i class="fab fa-line"></i
         ></a>
-        <a class="glassIco messenger" href="#"
+        <a
+          class="glassIco messenger"
+          href="https://m.me/PGCreativesThailand"
+          target="_blank"
           ><i class="fab fa-facebook-messenger"></i
         ></a>
         <a
@@ -242,17 +248,6 @@
     <script>
       function copyEmail() {
         var email = "pearlygolezcreatives@gmail.com";
-        var tempInput = document.createElement("input");
-        document.body.appendChild(tempInput);
-        tempInput.value = email;
-        tempInput.select();
-        tempInput.setSelectionRange(0, 99999); // Mobile devices
-        document.execCommand("copy");
-        document.body.removeChild(tempInput);
-        alert("Email copied to clipboard: " + email);
-      }
-      function copyLine() {
-        var email = "pgcreatives";
         var tempInput = document.createElement("input");
         document.body.appendChild(tempInput);
         tempInput.value = email;
