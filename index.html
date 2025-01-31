@@ -152,7 +152,7 @@
           <div class="testi">
             <div
               class="fb-post"
-              data-width="520"
+              data-width="350"
               data-href="https://www.facebook.com/annaleah.ramos.58/posts/5243100819035065?ref=embed_post"
             ></div>
           </div>
@@ -161,7 +161,7 @@
           <div class="testi">
             <div
               class="fb-post"
-              data-width="520"
+              data-width="350"
               data-href="https://www.facebook.com/krsnnrzn/posts/5786615978027440?ref=embed_post"
             ></div>
           </div>
@@ -170,7 +170,7 @@
           <div class="testi">
             <div
               class="fb-post"
-              data-width="460"
+              data-width="350"
               data-href="https://www.facebook.com/chantal.fernando.7/posts/10161106932850878?ref=embed_post"
             ></div>
           </div>
@@ -179,7 +179,7 @@
           <div class="testi">
             <div
               class="fb-post"
-              data-width="460"
+              data-width="350"
               data-href="https://www.facebook.com/head2toesalonbangkok/posts/818448410291223?ref=embed_post"
             ></div>
           </div>
@@ -188,7 +188,7 @@
           <div class="testi">
             <div
               class="fb-post"
-              data-width="460"
+              data-width="350"
               data-href="https://www.facebook.com/damafae21/posts/554137460312231?ref=embed_post"
             ></div>
           </div>
@@ -231,6 +231,7 @@
         <p>&copy; 2025 PG Creatives. All rights reserved.</p>
       </div>
     </footer>
+
     <script>
       function copyEmail() {
         var email = "pearlygolezcreatives@gmail.com";
@@ -295,8 +296,10 @@
         justify-content: center;
         align-items: center;
         width: 100%;
-        min-height: 60vh;
+        min-height: 500px;
         background-color: var(--color2);
+      }
+      .hidden {
       }
 
       .main-section p {
@@ -482,10 +485,6 @@
           flex: 50%;
           max-width: 50%;
         }
-        .carousel .carousel-item {
-          width: 350px;
-          height: auto;
-        }
         .glassIco {
           width: 60px;
           height: 40px;
@@ -507,9 +506,6 @@
         }
         .social-media a {
           flex: 1 1 calc(50% - 10px); /* 2 items per row */
-        }
-        .carousel .carousel-item {
-          width: 100vw;
         }
       }
     </style>
@@ -537,6 +533,7 @@
         });
       });
     </script>
+
     <!----- Testimonials Script ----- -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -559,18 +556,22 @@
         perspective: 250px;
       }
       .testi {
-        overflow-y: hidden;
-        max-height: 270px;
-        aspect-ratio: 16/9;
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
       }
 
       .carousel .carousel-item {
         background: var(--color2);
-        width: 500px;
-        padding: 1rem;
+        width: 400px;
         height: 300px;
+        padding: 1rem;
         text-align: center;
         border-radius: 15px;
+      }
+      .carousel-item {
+        display: flex;
+        flex-wrap: wrap;
       }
       .img-area {
         width: 100px;
@@ -601,6 +602,21 @@
         font-size: 14px;
         letter-spacing: 5px;
         margin: 7px 0;
+      }
+      @media (max-width: 800px) {
+        .carousel {
+        }
+        .carousel-item {
+        }
+        .testi {
+        }
+      }
+      /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+      @media (max-width: 600px) {
+        .carousel-item {
+        }
+        .testi {
+        }
       }
     </style>
     <!----- Social Media Styles ----- -->

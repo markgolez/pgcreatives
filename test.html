@@ -1,4 +1,4 @@
-<iframe
+<!-- <iframe
   src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fannaleah.ramos.58%2Fposts%2Fpfbid0vTsM7pWBU9p7qwAn5cqcSsQLvPrHTNCD8d4oDUFadbKngVb58EHiXzrCBeWsZHJEl&show_text=true&width=500"
   width="500"
   height="735"
@@ -28,36 +28,58 @@
   frameborder="0"
   allowfullscreen="true"
   allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-></iframe>
+></iframe> -->
 
 <script
   async
   defer
   src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"
 ></script>
-<div
-  class="fb-post"
-  data-width="350"
-  data-href="https://www.facebook.com/krsnnrzn/posts/5786615978027440?ref=embed_post"
-></div>
+<div class="wrapper">
+  <div
+    class="fb-post first"
+    data-width="500"
+    style="background: blueviolet"
+    data-href="https://www.facebook.com/krsnnrzn/posts/5786615978027440?ref=embed_post"
+  ></div>
 
-<div
-  class="fb-post"
-  data-href="https://www.facebook.com/chantal.fernando.7/posts/10161106932850878"
-  data-width="fluid wir"
-  data-show-text="true"
->
-  <blockquote
-    cite="https://www.facebook.com/chantal.fernando.7/posts/10161106932850878"
-    class="fb-xfbml-parse-ignore"
+  <div
+    class="fb-post second"
+    data-href="https://www.facebook.com/chantal.fernando.7/posts/10161106932850878"
+    data-width="fluid width"
+    data-show-text="true"
   >
-    <p>
-      Our photoshoot with this team was exactly what was in our brief.. there
-      was an attention to detail, consideration for...
-    </p>
-    Posted by <a href="#" role="button">Chantal Fernando</a> on&nbsp;<a
-      href="https://www.facebook.com/chantal.fernando.7/posts/10161106932850878"
-      >Monday 27 January 2025</a
+    <div
+      class="fb-post"
+      data-href="https://www.facebook.com/chantal.fernando.7/posts/10161106932850878"
+      data-width="350"
+      data-show-text="true"
+      style="background: red"
     >
-  </blockquote>
+      <blockquote
+        cite="https://www.facebook.com/chantal.fernando.7/posts/10161106932850878"
+        class="fb-xfbml-parse-ignore"
+      >
+        <p>
+          Our photoshoot with this team was exactly what was in our brief..
+          there was an attention to detail, consideration for...
+        </p>
+        Posted by <a href="#" role="button">Chantal Fernando</a> on&nbsp;<a
+          href="https://www.facebook.com/chantal.fernando.7/posts/10161106932850878"
+          >Monday 27 January 2025</a
+        >
+      </blockquote>
+    </div>
+  </div>
 </div>
+<style>
+  .fb-post {
+    flex-grow: 1 1 500px;
+  }
+  .wrapper {
+    width: 1000px;
+    display: flex;
+  }
+  .first {
+  }
+</style>
