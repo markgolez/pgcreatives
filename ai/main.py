@@ -1,5 +1,10 @@
+from utils import *
 from fastapi import FastAPI
 from transformers import AutoModelForCausalLM, AutoTokenizer
+
+
+import sys
+
 
 app = FastAPI()
 
@@ -18,3 +23,13 @@ async def generate_code(prompt: str, max_length: int = 128):
     return {"code": result}
 
 # To run the API, use: uvicorn filename:app --reload
+
+
+if __name__ == "__main__":
+    if len(sys.argv) < 2:
+        project_path = input("Enter the path to your project: ")
+    else:
+        project_path = sys.argv[1]
+
+    assistant = AIAssistant(project_path)
+    assistant.cli()
