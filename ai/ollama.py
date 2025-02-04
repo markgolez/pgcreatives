@@ -3,7 +3,7 @@ from ollama import Ollama
 # Initialize with specific configuration
 model = Ollama(
     model_name="gpt2",
-    device_type="cpu",  # or 'cuda' for GPU
+    device_type="cuda",  # or 'cuda' for GPU
     precision="fp16"   # or 'int8'
 )
 
