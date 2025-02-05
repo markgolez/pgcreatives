@@ -151,6 +151,7 @@
       const cardData = [
         {
           imgClass: "img-first",
+          imgUrl: "https://i.postimg.cc/wMr3nf59/0T7A4921.jpg",
           title: "Wedding Photography",
           description:
             "Capture the magic of your wedding day with timeless, candid moments.",
@@ -158,6 +159,7 @@
         },
         {
           imgClass: "img-second",
+          imgUrl: "https://i.postimg.cc/P5Qv54TQ/0T7A8108.jpg",
           title: "Prenup Photography",
           description:
             "Celebrate your love story with a creative and intimate pre-wedding shoot.",
@@ -165,13 +167,15 @@
         },
         {
           imgClass: "img-third",
+          imgUrl: "https://i.postimg.cc/Jnnrm3z0/0-T7-A7149-Edit.jpg",
           title: "Creative Shoot",
           description:
-            "Bring your vision to life with a unique and artistic photoshoot.",
+            "Bring your vision to life with a unique and artistic shoot.",
           link: "https://sites.google.com/view/pgcreatives/gallery",
         },
         {
           imgClass: "img-fourth",
+          imgUrl: "https://i.postimg.cc/BbPJPqDG/0T7A7395.jpg",
           title: "Indoor/Outdoor Shoot",
           description:
             "Perfect photos, whether indoors or outdoors, tailored to your style.",
@@ -179,13 +183,15 @@
         },
         {
           imgClass: "img-fifth",
+          imgUrl: "https://i.postimg.cc/KjTyv0SG/0T7A3981.jpg",
           title: "Events Photography",
           description:
             "Capture the joy and highlights of your event with stunning photography.",
-          link: "#",
+          link: "https://sites.google.com/view/pgcreatives/gallery",
         },
         {
           imgClass: "img-sixth",
+          imgUrl: "https://i.postimg.cc/R06WXLxc/0-T7-A8294-Edit.jpg",
           title: "Maternity Photography",
           description:
             "Celebrate the beauty of motherhood with elegant maternity portraits.",
@@ -193,17 +199,19 @@
         },
         {
           imgClass: "img-seventh",
-          title: "Christening",
+          imgUrl: "https://i.postimg.cc/Pf0w3JSY/0T7A7589.jpg",
+          title: "Christening Events",
           description:
-            "Preserve sacred moments of your child’s christening with timeless photography.",
+            "Preserve sacred moments of your child's christening with timeless photography.",
           link: "https://sites.google.com/view/pgcreatives/gallery",
         },
         {
-          imgClass: "img-eight",
-          title: "Portrait Photography",
+          imgClass: "img-eighth",
+          imgUrl: "https://i.postimg.cc/VNH6JZTn/156A7140-Edit-2.jpg",
+          title: "Studio Photography",
           description:
             "Capture your stunning portraits showcasing your unique personality.",
-          link: "#",
+          link: "https://sites.google.com/view/pgcreatives/gallery",
         },
       ];
 
@@ -214,7 +222,7 @@
         cardElement.classList.add("item");
 
         cardElement.innerHTML = `
-          <div class="img ${card.imgClass}"></div>
+          <div class="img ${card.imgClass}" style="background-image: url(${card.imgUrl})"></div>
           <div class="card">
             <h3>${card.title}</h3>
             <p>${card.description}</p>
@@ -226,6 +234,7 @@
       });
     </script>
 
+    <!-- Body Styles -->
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Red+Hat+Text:wght@400;700&display=swap");
 
@@ -245,9 +254,6 @@
         display: flex;
         flex-direction: column;
         overflow-x: hidden;
-      }
-
-      .wrapper {
       }
 
       .main-section {
@@ -278,8 +284,6 @@
         width: 100%;
         min-height: 500px;
         background-color: var(--color2);
-      }
-      .hidden {
       }
 
       .main-section p {
@@ -407,37 +411,9 @@
         border-radius: 0.3em;
       }
 
-      .img-first {
-        background-image: url(https://i.postimg.cc/wMr3nf59/0T7A4921.jpg);
-      }
-
-      .img-second {
-        background-image: url(https://i.postimg.cc/P5Qv54TQ/0T7A8108.jpg);
-      }
-
-      .img-third {
-        background-image: url(https://i.postimg.cc/Jnnrm3z0/0-T7-A7149-Edit.jpg);
-      }
-
-      .img-fourth {
-        background-image: url(https://i.postimg.cc/BbPJPqDG/0T7A7395.jpg);
-      }
-
-      .img-fifth {
-        background-image: url(https://i.postimg.cc/KjTyv0SG/0T7A3981.jpg);
-      }
-
       .img-sixth {
         background-image: url(https://i.postimg.cc/R06WXLxc/0-T7-A8294-Edit.jpg);
         background-position-y: 10%, center;
-      }
-
-      .img-seventh {
-        background-image: url(https://i.postimg.cc/Pf0w3JSY/0T7A7589.jpg);
-      }
-
-      .img-eight {
-        background-image: url(https://i.postimg.cc/VNH6JZTn/156A7140-Edit-2.jpg);
       }
 
       /* Hidden Class (initially invisible) */
