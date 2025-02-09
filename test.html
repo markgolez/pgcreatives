@@ -1,120 +1,192 @@
-<<<<<<< HEAD
-<div class="main-section second">
-  <div class="item hidden">
-    <div class="img img-first"></div>
-    <div class="card">
-      <h3>Wedding Photography</h3>
-      <p>
-        Capture the magic of your wedding day with timeless, candid moments.
-      </p>
-      <a href="https://sites.google.com/view/pgcreatives/gallery">Learn more</a>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flexible Image Gallery</title>
+    <style>
+      /* General Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* Body and Gallery Container */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+      }
+
+      .gallery {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* Three columns */
+        gap: 16px; /* Space between images */
+        max-width: 1200px;
+        margin: 0 auto;
+        gap: 16px;
+      }
+
+      /* Gallery Items */
+      .gallery-item img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+      }
+
+      /* Hover Effect on Images */
+      .gallery-item img:hover {
+        transform: scale(1.05);
+      }
+
+      .column {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      /* Responsive Design: Adjust grid to 2 columns on medium screens */
+      @media (max-width: 800px) {
+        .gallery {
+          grid-template-columns: repeat(2, 1fr); /* Two columns */
+        }
+      }
+
+      /* Responsive Design: Adjust grid to 1 column on small screens */
+      @media (max-width: 70px) {
+        .gallery {
+          grid-template-columns: 1fr; /* One column */
+        }
+      }
+
+      /* Modal CSS */
+      /* .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.7);
+        justify-content: center;
+        align-items: center;
+      }
+
+      .modal img {
+        max-width: 90%;
+        max-height: 90%;
+      } */
+    </style>
+  </head>
+  <body>
+    <div class="gallery">
+      <div class="column">
+        <div class="gallery-item">
+          <img src="https://i.postimg.cc/wMr3nf59/0T7A4921.jpg" alt="Image 1" />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://i.postimg.cc/4xnyxQdr/0-T7-A1289-Edit-2.jpg"
+            alt="Image 10"
+          />
+        </div>
+        <div class="gallery-item">
+          <img src="https://i.postimg.cc/P5Qv54TQ/0T7A8108.jpg" alt="Image 2" />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://i.postimg.cc/Jnnrm3z0/0-T7-A7149-Edit.jpg"
+            alt="Image 3"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://i.postimg.cc/VLg06NFb/0T7A7839.jpg"
+            alt="Image 12"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://i.postimg.cc/zX1fHgdt/156A9285.jpg"
+            alt="Image 13"
+          />
+        </div>
+      </div>
+      <div class="column">
+        <div class="gallery-item">
+          <img
+            src="https://i.postimg.cc/hv9xMbxC/0-T7-A3305-Edit.jpg"
+            alt="Image 4"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://i.postimg.cc/LXPZ6ByH/0-T7-A7143-Edit.jpg"
+            alt="Image 5"
+          />
+        </div>
+        <div class="gallery-item">
+          <img src="https://i.postimg.cc/DwYWrYHv/0T7A7876.jpg" alt="Image 6" />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://i.postimg.cc/ZKxpdHJn/0T7A6173.jpg"
+            alt="Image 11"
+          />
+        </div>
+      </div>
+      <div class="column">
+        <div class="gallery-item">
+          <img
+            src="https://i.postimg.cc/VNH6JZTn/156A7140-Edit-2.jpg"
+            alt="Image 14"
+          />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://i.postimg.cc/BvXKRGHP/0-T7-A7346-2.jpg"
+            alt="Image 7"
+          />
+        </div>
+        <div class="gallery-item">
+          <img src="https://i.postimg.cc/sXZLp1nK/0T7A3598.jpg" alt="Image 8" />
+        </div>
+        <div class="gallery-item">
+          <img src="https://i.postimg.cc/KjTyv0SG/0T7A3981.jpg" alt="Image 9" />
+        </div>
+        <div class="gallery-item">
+          <img
+            src="https://i.postimg.cc/tJRMcQNy/0T7A8131-Edit.jpg"
+            alt="Image 15"
+          />
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="item hidden">
-    <div class="img img-second"></div>
-    <div class="card">
-      <h3>Prenup Photography</h3>
-      <p>
-        Celebrate your love story with a creative and intimate pre-wedding
-        shoot.
-      </p>
-      <a href="https://sites.google.com/view/pgcreatives/gallery">Learn more</a>
-    </div>
-  </div>
 
-  <div class="item hidden">
-    <div class="img img-third"></div>
-    <div class="card">
-      <h3>Creative Shoot</h3>
-      <p>Bring your vision to life with a unique and artistic photoshoot.</p>
-      <a href="https://sites.google.com/view/pgcreatives/gallery">Learn more</a>
-    </div>
-  </div>
-</div>
-=======
-<!-- <iframe
-  src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fannaleah.ramos.58%2Fposts%2Fpfbid0vTsM7pWBU9p7qwAn5cqcSsQLvPrHTNCD8d4oDUFadbKngVb58EHiXzrCBeWsZHJEl&show_text=true&width=500"
-  width="500"
-  height="735"
-  style="border: none; overflow: hidden"
-  frameborder="0"
-  allowfullscreen="true"
-  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-></iframe>
+    <!-- <script>
+      // Example: Modal Viewer (Image in a popup)
 
-<iframe
-  src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fkrsnnrzn%2Fposts%2F5786615978027440&show_text=true&width=500"
-  width="400"
-  height="735"
-  style="border: none; overflow: hidden"
-  scrolling="no"
-  frameborder="0"
-  allowfullscreen="true"
-  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-></iframe>
+      // When an image is clicked, it opens in a modal
+      const galleryImages = document.querySelectorAll(".gallery-item img");
+      const modal = document.createElement("div");
+      modal.classList.add("modal");
+      document.body.appendChild(modal);
 
-<iframe
-  src="https://www.facebook.com/plugins/post.php?href=https%3A%2F%2Fwww.facebook.com%2Fchantal.fernando.7%2Fposts%2F10161106932850878&show_text=true&width=500"
-  width="400"
-  height="265"
-  style="border: none; overflow: hidden"
-  scrolling="no"
-  frameborder="0"
-  allowfullscreen="true"
-  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-></iframe> -->
+      galleryImages.forEach((image) => {
+        image.addEventListener("click", () => {
+          modal.innerHTML = `<img src="${image.src}" alt="Selected Image">`;
+          modal.style.display = "flex";
+        });
+      });
 
-<script
-  async
-  defer
-  src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"
-></script>
-<div class="wrapper">
-  <div
-    class="fb-post first"
-    data-width="500"
-    style="background: blueviolet"
-    data-href="https://www.facebook.com/krsnnrzn/posts/5786615978027440?ref=embed_post"
-  ></div>
-
-  <div
-    class="fb-post second"
-    data-href="https://www.facebook.com/chantal.fernando.7/posts/10161106932850878"
-    data-width="fluid width"
-    data-show-text="true"
-  >
-    <div
-      class="fb-post"
-      data-href="https://www.facebook.com/chantal.fernando.7/posts/10161106932850878"
-      data-width="350"
-      data-show-text="true"
-      style="background: red"
-    >
-      <blockquote
-        cite="https://www.facebook.com/chantal.fernando.7/posts/10161106932850878"
-        class="fb-xfbml-parse-ignore"
-      >
-        <p>
-          Our photoshoot with this team was exactly what was in our brief..
-          there was an attention to detail, consideration for...
-        </p>
-        Posted by <a href="#" role="button">Chantal Fernando</a> on&nbsp;<a
-          href="https://www.facebook.com/chantal.fernando.7/posts/10161106932850878"
-          >Monday 27 January 2025</a
-        >
-      </blockquote>
-    </div>
-  </div>
-</div>
-<style>
-  .fb-post {
-    flex-grow: 1 1 500px;
-  }
-  .wrapper {
-    width: 1000px;
-    display: flex;
-  }
-  .first {
-  }
-</style>
->>>>>>> 0cbb5e1b44e3601d65212f425f0187705759ec10
+      // Close the modal when clicked
+      modal.addEventListener("click", () => {
+        modal.style.display = "none";
+      });
+    </script> -->
+  </body>
+</html>

@@ -22,18 +22,16 @@
   </head>
 
   <body>
-    <div class="main-section">
+    <div class="main-section first snap">
       <h1 class="hidden">PG Creatives</h1>
-      <p class="hidden" style="margin: 0">
-        Wedding and Events Photography Services
-      </p>
+      <p class="hidden">Preserving Memories Forever</p>
       <a href="https://sites.google.com/view/pgcreatives/gallery" class="hidden"
         >Gallery</a
       >
     </div>
-    <div class="blank">
+    <div class="blank snap">
       <section class="services-section hidden">
-        <h2 class="hidden">Our Photography Services</h2>
+        <h2 class="hidden">Our Photography</h2>
         <p class="hidden">
           At PG Creatives, we offer a range of services tailored to your unique
           needs. Whether it’s capturing the magic of your wedding, creating
@@ -44,9 +42,12 @@
         </p>
       </section>
     </div>
-    <div class="main-section second" id="card-container"></div>
+    <div class="services-section-wrapper snap">
+      <h2 class="hidden">Our Services</h2>
+      <div class="main-section second snap" id="card-container"></div>
+    </div>
     <div class="blank"></div>
-    <div class="main-section third">
+    <div class="main-section third snap">
       <h1 class="hidden">Testimonials</h1>
       <div class="carousel">
         <div class="carousel-item">
@@ -101,7 +102,7 @@
       <div class="blank"></div> -->
 
     <!-- Footer Section -->
-    <footer>
+    <footer class="snap">
       <div class="social-media">
         <a class="glassIco email" href="" onclick="copyEmail(); return false;"
           ><i class="fa fa-envelope"></i
@@ -170,7 +171,7 @@
           imgUrl: "https://i.postimg.cc/Jnnrm3z0/0-T7-A7149-Edit.jpg",
           title: "Creative Shoot",
           description:
-            "Bring your vision to life with a unique and artistic shoot.",
+            "Bring your vision to life with a unique and artistic photoshoot.",
           link: "https://sites.google.com/view/pgcreatives/gallery",
         },
         {
@@ -219,14 +220,14 @@
 
       cardData.forEach((card) => {
         const cardElement = document.createElement("div");
-        cardElement.classList.add("item");
+        cardElement.classList.add("item", "hidden");
 
         cardElement.innerHTML = `
           <div class="img ${card.imgClass}" style="background-image: url(${card.imgUrl})"></div>
           <div class="card">
             <h3>${card.title}</h3>
             <p>${card.description}</p>
-            <a href="${card.link}">Learn more</a>
+            <a href="${card.link}">Gallery</a>
           </div>
         `;
 
@@ -256,12 +257,13 @@
         overflow-x: hidden;
       }
 
-      .main-section {
+      .snap {
         scroll-snap-align: start; /* Snaps each section to the start */
+      }
+
+      .main-section {
         /* Each section takes full screen */
-
         font-size: 2rem;
-
         margin: 0;
         text-align: center;
         color: var(--color1);
@@ -271,10 +273,22 @@
         flex-direction: column;
         align-items: center;
         justify-content: center;
+      }
+      .first,
+      .third {
         background-image: url(https://i.postimg.cc/W1wTkYDt/0-T7-A3430-3.jpg);
         background-size: cover;
         background-position: center;
         background-attachment: fixed;
+      }
+
+      .first h1 {
+        font-size: 6rem;
+        margin: 0;
+      }
+      .first p {
+        margin: 0 0 10px 0;
+        padding: 0;
       }
 
       .blank {
@@ -336,10 +350,19 @@
         color: var(--color1);
       }
 
-      .second {
+      .services-section-wrapper {
+        width: 100%;
+        height: 1200px;
+        display: flex;
         flex-wrap: wrap;
         background-image: url(https://i.postimg.cc/gcQ0Mwv7/X-K09159-Edit.jpg);
         background-attachment: fixed;
+        background-size: cover;
+        flex-direction: row;
+        justify-content: center;
+      }
+      .second {
+        flex-wrap: wrap;
         height: 1000px;
         display: flex;
         flex-direction: row;
@@ -348,7 +371,6 @@
         -ms-overflow-style: none;
         justify-content: center;
       }
-
       .third {
         margin: 0;
         padding: 0;
@@ -369,21 +391,22 @@
       }
 
       .item {
+        opacity: 0;
         margin: 3rem;
         display: flex;
-
         height: 350px;
         max-width: 230px;
         background-color: white;
         flex-direction: column;
         align-items: center;
+        overflow: hidden;
         border-radius: 0.5em;
         box-shadow: 0px 29px 38px -15px rgba(0, 0, 0, 0.43);
       }
 
-      .card {
+      /* .card {
         border-radius: 0.5em;
-      }
+      } */
 
       .card > p,
       .card > h3 {
@@ -403,12 +426,16 @@
 
       .img {
         aspect-ratio: 10 / 7;
-        width: 90%;
+        width: 100%;
         background-color: lightgrey;
         background-size: cover;
         background-position: center;
-        margin-top: 20px;
-        border-radius: 0.3em;
+
+        /* border-radius: 0.3em; */
+      }
+      .img:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
       }
 
       .img-sixth {
@@ -434,12 +461,15 @@
         flex-wrap: wrap;
         justify-content: center;
         gap: 10px;
+        padding-bottom: 20px;
       }
 
       @media (max-width: 800px) {
-        .column {
-          flex: 50%;
-          max-width: 50%;
+        .item {
+          height: 340px;
+        }
+        .first h1 {
+          font-size: 3rem;
         }
         .glassIco {
           width: 60px;
@@ -465,34 +495,37 @@
         }
       }
     </style>
-
+    <!----- Fade in animation ----- -->
     <script>
-      // JavaScript: Scroll-triggered animation
-      document.addEventListener("DOMContentLoaded", () => {
-        const observer = new IntersectionObserver(
-          (entries, observer) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("visible"); // Add 'visible' class when in view
-                observer.unobserve(entry.target); // Stop observing after the animation triggers
-              }
-            });
-          },
-          { threshold: 0.1 } // Trigger when 10% of the element is visible
-        );
+      // JavaScript: Scroll-triggered animation after the page fully loads
+      window.addEventListener("load", () => {
+        setTimeout(() => {
+          const observer = new IntersectionObserver(
+            (entries, observer) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("visible"); // Add 'visible' class when in view
+                  observer.unobserve(entry.target); // Stop observing after the animation triggers
+                }
+              });
+            },
+            { threshold: 0.1 } // Trigger when 10% of the element is visible
+          );
 
-        // Observe all hidden elements
-        const hiddenElements = document.querySelectorAll(".hidden");
-        hiddenElements.forEach((el, index) => {
-          el.style.transitionDelay = `${index * 0.1}s`; // Add staggered delay
-          observer.observe(el);
-        });
+          // Observe all hidden elements
+          const hiddenElements = document.querySelectorAll(".hidden");
+          hiddenElements.forEach((el, index) => {
+            el.style.transitionDelay = `${index * 0.1}s`; // Add staggered delay
+            observer.observe(el);
+          });
+        }, 800);
       });
     </script>
 
     <!----- Testimonials Script ----- -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!----- Carousel animation ----- -->
     <script>
       $(document).ready(function () {
         $(".carousel").carousel({
@@ -519,7 +552,7 @@
 
       .carousel .carousel-item {
         background: var(--color2);
-        width: 400px;
+        width: 385px;
         height: 300px;
         padding: 1rem;
         text-align: center;
